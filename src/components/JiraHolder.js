@@ -3,23 +3,61 @@ import JiraInputRow from './JiraInputRow';
 
 const JiraHolder = () => {
 
-    const [jiras, setJiras] = useState([<JiraInputRow />]);
+    const [state, setState] = useState({
+        jiras: [],
+        lastRowId: 0
+    });
 
     useEffect(() => {
-        console.log(jiras);
+        resetRows();
+    }, [])
+
+    useEffect(() => {
+        console.log("jasTrace: JIRAS state changed. Logging it");
+        console.log(state);
     })
 
     const addRow = () => {
-        setJiras([
-            ...jiras,
-            <JiraInputRow />
-        ]);
+        const rowid = state.lastRowId + 1;
+        setState({
+            jiras: [
+                ...state.jiras,
+                <JiraInputRow rowid={rowid} />
+            ],
+            lastRowId: rowid
+        });
+    }
+
+    const deleteRow = (index) => {
+        console.log(index);
+        if (state.jiras.length > 1) {
+            const remainders = state.jiras.filter((el, i) => {
+                if (i != index) {
+                    console.log(i + ' true')
+                    return el;
+                }
+            });
+            setState({
+                jiras: remainders,
+                lastRowId: state.lastRowId
+            });
+        } else {
+            alert("Cannot delete the last row");
+        }
+    }
+
+    const resetRows = () => {
+        setState({
+            jiras: [<JiraInputRow rowid={0} />],
+            lastRowId: 0
+        });
     }
 
     return (
         <div>
             <button onClick={addRow}>Add JIRA</button>
-            <table className="table table-striped">
+            <button onClick={resetRows}>Reset</button>
+            <table id="jiraholdertable" className="table table-striped">
                 <thead>
                     <tr>
                         <th>Jira Summary</th>
@@ -31,7 +69,11 @@ const JiraHolder = () => {
                 </thead>
                 <tbody>
                     {
-                        jiras.map((jira, i) => <tr key={i}>{jira}</tr>)
+                        state.jiras.map((jira, i) =>
+                            <tr key={jira.props.rowid}>
+                                {jira}
+                                <td><button onClick={function () { deleteRow(i) }}>Delete Row {i}</button></td>
+                            </tr>)
                     }
                 </tbody>
             </table>
