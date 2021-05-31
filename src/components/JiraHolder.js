@@ -8,10 +8,16 @@ const JiraHolder = () => {
         lastRowId: 0
     });
 
+    /**
+     * Reset the rows on page load
+     */
     useEffect(() => {
         resetRows();
     }, [])
 
+    /**
+     * Just debug logging
+     */
     useEffect(() => {
         console.log("jasTrace: JIRAS state changed. Logging it");
         console.log(state);
@@ -28,15 +34,11 @@ const JiraHolder = () => {
         });
     }
 
-    const deleteRow = (index) => {
-        console.log(index);
+    const deleteRow = (rowId) => {
+        console.log(rowId);
         if (state.jiras.length > 1) {
-            const remainders = state.jiras.filter((el, i) => {
-                if (i != index) {
-                    console.log(i + ' true')
-                    return el;
-                }
-            });
+            // filter out anything that does not match the provided rowId
+            const remainders = state.jiras.filter((jira) => (jira.props.rowid !== rowId));
             setState({
                 jiras: remainders,
                 lastRowId: state.lastRowId
@@ -69,11 +71,13 @@ const JiraHolder = () => {
                 </thead>
                 <tbody>
                     {
-                        state.jiras.map((jira, i) =>
-                            <tr key={jira.props.rowid}>
-                                {jira}
-                                <td><button onClick={function () { deleteRow(i) }}>Delete Row {i}</button></td>
-                            </tr>)
+                        state.jiras.map(
+                            (jira) =>
+                                <tr key={jira.props.rowid}>
+                                    {jira}
+                                    <td><button onClick={function () { deleteRow(jira.props.rowid) }}>Delete Row {jira.props.rowid}</button></td>
+                                </tr>
+                        )
                     }
                 </tbody>
             </table>
