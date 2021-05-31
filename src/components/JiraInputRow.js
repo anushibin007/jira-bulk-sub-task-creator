@@ -26,7 +26,7 @@ const JiraInputRow = () => {
 
     return (
         <React.Fragment>
-            <tr>
+            
                 <td><input name="summary" value={jira.summary} onChange={handleInputChanged}></input></td>
                 <td>
                     <select name="priority" value={jira.priority} onChange={handleInputChanged}>
@@ -54,7 +54,7 @@ const JiraInputRow = () => {
                         <option value="@inherit">Inherit</option>
                     </select>
                 </td>
-            </tr>
+            
         </React.Fragment>
     )
 }
