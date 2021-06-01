@@ -71,10 +71,9 @@ const JiraHolder = () => {
     }
 
     const getResultLine = (jira) => {
-        console.log('sending results');
         if(jira.summary != "") {
         return (
-            <p key={jira.rowid}>- { jira.summary } / priority:"{jira.priority}" assignee:"{jira.assignee}" fixversion:"{jira.fixversion}" cfield:"DevPriority:{jira.devpriority}"</p>
+            <p key={jira.rowid}>- { jira.summary } / description:"{jira.description}" priority:"{jira.priority}" assignee:"{jira.assignee}" fixversion:"{jira.fixversion}" cfield:"DevPriority:{jira.devpriority}"</p>
         )
         }
     }
@@ -108,7 +107,8 @@ return (
             <thead>
                 <tr>
                     <th>Jira Summary</th>
-                    <th>Jira Priority</th>
+                    <th>Description</th>
+                    <th>Priority</th>
                     <th>Assignee</th>
                     <th>Fix Version</th>
                     <th>Dev Priority</th>
@@ -121,6 +121,7 @@ return (
                         (jira) =>
                             <tr key={jira.rowid} id={jira.rowid}>
                                 <td><input name="summary" value={jira.summary} onChange={handleInputChanged}></input></td>
+                                <td><textarea name="description" value={jira.description} onChange={handleInputChanged}></textarea></td>
                                 <td>
                                     <select name="priority" value={jira.priority} onChange={handleInputChanged}>
                                         <option value="@inherit">Inherit</option>

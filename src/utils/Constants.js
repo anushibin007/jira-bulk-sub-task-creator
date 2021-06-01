@@ -2,6 +2,7 @@ const Constants = {
     initialJiraValues: {
         rowid: "",
         summary: "",
+        description: "",
         priority: "@inherit",
         assignee: "@current",
         fixversion: "@inherit",
