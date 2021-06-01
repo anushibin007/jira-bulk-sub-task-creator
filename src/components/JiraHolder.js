@@ -160,6 +160,7 @@ return (
             <li>Paste the content you copied from this page above</li>
             <li>Click on "Create Sub-Tasks"</li>
         </ol>
+        <a class="github-fork-ribbon right-top" href="https://github.com/anushibin007/jira-bulk-sub-task-creator" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
     </div>
 )
 }
