@@ -1,3 +1,4 @@
+import '../App.css';
 import React, { useEffect, useState } from 'react';
 import Constants from '../utils/Constants';
 
@@ -95,8 +96,6 @@ const handleInputChanged = (event) => {
 
 return (
     <div>
-        <button onClick={addRow}>Add JIRA</button>
-        <button onClick={resetRows}>Reset</button>
         <table id="jiraholdertable" className="table table-striped">
             <thead>
                 <tr>
@@ -112,7 +111,7 @@ return (
                     state.jiras.map(
                         (jira) =>
                             <tr key={jira.rowid} id={jira.rowid}>
-                                <td>RowId = {jira.rowid}<input name="summary" value={jira.summary} onChange={handleInputChanged}></input></td>
+                                <td><input name="summary" value={jira.summary} onChange={handleInputChanged}></input></td>
                                 <td>
                                     <select name="priority" value={jira.priority} onChange={handleInputChanged}>
                                         <option value="@inherit">Inherit</option>
@@ -139,17 +138,28 @@ return (
                                         <option value="@inherit">Inherit</option>
                                     </select>
                                 </td>
-                                <td><button onClick={function () { deleteRow(jira.rowid) }}>Delete Row {jira.rowid}</button></td>
+                                <td><button onClick={function () { deleteRow(jira.rowid) }}>Delete Row</button></td>
                             </tr>
                     )
                 }
             </tbody>
         </table>
+        <button onClick={addRow}>Add Sub-task</button>
+        <button onClick={resetRows}>Reset</button>
+        <h5>Results:</h5>
         {
             state.jiras.map(
                 (jira) => getResultLine(jira)
             )
         }
+        <h5>How it works:</h5>
+        <ol>
+            <li>Copy the text from the Results above</li>
+            <li>Go to your parent JIRA</li>
+            <li>Click on More → Create multiple sub-tasks</li>
+            <li>Paste the content you copied from this page above</li>
+            <li>Click on "Create Sub-Tasks"</li>
+        </ol>
     </div>
 )
 }
