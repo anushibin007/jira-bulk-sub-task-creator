@@ -1,14 +1,12 @@
-import '../App.css';
-import React from 'react';
+import "../css/navbar.css";
+import React from "react";
 
 function Navigation() {
-    return (
-        <nav>
-            <div className="titleheader">
-                <h4>Jira Bulk Subtask Creator</h4>
-            </div>
-        </nav>
-    )
+	return (
+		<nav className="navbar navbar-dark bg-dark">
+			<span className="navbar-brand">Jira Bulk Subtask Creator</span>
+		</nav>
+	);
 }
 
-export default Navigation
+export default Navigation;
