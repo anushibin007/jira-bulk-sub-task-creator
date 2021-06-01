@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Constants from '../utils/Constants';
 import JiraInputRow from './JiraInputRow';
 
 const JiraHolder = () => {
@@ -25,20 +26,19 @@ const JiraHolder = () => {
 
     const addRow = () => {
         const rowid = state.lastRowId + 1;
+        var tempJiraStateHolder = state.jiras;
+        tempJiraStateHolder.push(getJiraWithCustomRowId(rowid));
         setState({
-            jiras: [
-                ...state.jiras,
-                <JiraInputRow rowid={rowid} />
-            ],
+            jiras: tempJiraStateHolder,
             lastRowId: rowid
         });
     }
 
-    const deleteRow = (rowId) => {
-        console.log(rowId);
+    const deleteRow = (rowid) => {
+        console.log(rowid);
         if (state.jiras.length > 1) {
-            // filter out anything that does not match the provided rowId
-            const remainders = state.jiras.filter((jira) => (jira.props.rowid !== rowId));
+            // filter out anything that does not match the provided rowid
+            const remainders = state.jiras.filter((jira) => (jira.rowid !== rowid));
             setState({
                 jiras: remainders,
                 lastRowId: state.lastRowId
@@ -50,9 +50,20 @@ const JiraHolder = () => {
 
     const resetRows = () => {
         setState({
-            jiras: [<JiraInputRow rowid={0} />],
+            jiras: [getJiraWithCustomRowId(0)],
             lastRowId: 0
         });
+    }
+
+    const getJiraWithCustomRowId = (customRowId) => {
+        // You need to clone the JSON object instead of making a reference to it using the "=" operator
+        const aJira = JSON.parse(JSON.stringify(Constants.initialJiraValues));
+        aJira.rowid = customRowId;
+        return aJira;
+    }
+
+    const rowChanged = () => {
+        console.log('jasTrace: row changed');
     }
 
     return (
@@ -73,9 +84,9 @@ const JiraHolder = () => {
                     {
                         state.jiras.map(
                             (jira) =>
-                                <tr key={jira.props.rowid}>
-                                    {jira}
-                                    <td><button onClick={function () { deleteRow(jira.props.rowid) }}>Delete Row {jira.props.rowid}</button></td>
+                                <tr key={jira.rowid}>
+                                    <JiraInputRow rowid={jira.rowid} jira={jira} />
+                                    <td><button onClick={function () { deleteRow(jira.rowid) }}>Delete Row {jira.rowid}</button></td>
                                 </tr>
                         )
                     }

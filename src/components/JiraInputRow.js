@@ -1,27 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import Constants from '../utils/Constants';
 
 const JiraInputRow = (props) => {
 
-    const initialValues = {
-        rowid: "",
-        summary: "",
-        priority: "@inherit",
-        assignee: "@current",
-        fixversion: "@inherit",
-        devpriority: "@inherit"
-    };
-
-    const [jira, setJira] = useState(initialValues);
+    const [jira, setJira] = useState(Constants.initialJiraValues);
 
     useEffect(() => {
         setJira({
-            ...jira,
+            ...props.jira,
             rowid: props.rowid
         });
     }, [])
 
     useEffect(() => {
-        console.log(jira);
+        //console.log(jira);
     })
 
     const handleInputChanged = (event) => {
