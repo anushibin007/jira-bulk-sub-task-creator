@@ -65,14 +65,29 @@ const JiraHolder = () => {
 		var results = document.getElementById("results").innerHTML;
 		// make sure to replace line breaks with newline character
 		results = results.replaceAll("<br>", "\n");
-		navigator.clipboard.writeText(results);
-		showCopyDone(event);
+		try {
+			navigator.clipboard.writeText(results);
+			showCopyDone(event, true);
+		} catch (error) {
+			showCopyDone(event, false);
+		}
 	};
 
-	const showCopyDone = (event) => {
-		// change text and the button color to show that copy was done
-		event.target.innerHTML = '<i class="bi bi-clipboard-check"></i> Copied';
-		event.target.className = "btn btn-success";
+	/**
+	 * Updates the "Copy" button to give feedback to the user whether the copy passed or failed.
+	 *
+	 * @param {*} event
+	 * @param {*} passOrFail True if the copy was successful. False otherwise
+	 */
+	const showCopyDone = (event, passOrFail) => {
+		// change text and the button color to show that copy was done/failed
+		if (passOrFail) {
+			event.target.innerHTML = '<i class="bi bi-clipboard-check"></i> Copied';
+			event.target.className = "btn btn-success";
+		} else {
+			event.target.innerHTML = '<i class="bi bi-clipboard-x"></i> Copy Failed';
+			event.target.className = "btn btn-danger";
+		}
 
 		// change it back to the old text and color after a second
 		setTimeout(() => {
