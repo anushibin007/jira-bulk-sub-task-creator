@@ -104,7 +104,7 @@ const handleInputChanged = (event) => {
 
 return (
     <div>
-        <table id="jiraholdertable" className="table table-striped">
+        <table id="jiraholdertable" className="table table-striped" border="1" width="100%">
             <thead>
                 <tr>
                     <th>Jira Summary</th>
@@ -112,6 +112,7 @@ return (
                     <th>Assignee</th>
                     <th>Fix Version</th>
                     <th>Dev Priority</th>
+                    <th>Deletions</th>
                 </tr>
             </thead>
             <tbody>
