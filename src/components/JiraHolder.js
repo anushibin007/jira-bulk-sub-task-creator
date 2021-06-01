@@ -161,7 +161,7 @@ const JiraHolder = () => {
 											deleteRow(jira.rowid);
 										}}
 									>
-										Delete Row
+										<i className="bi bi-trash"></i> Delete Row
 									</button>
 								</td>
 							</tr>
@@ -171,10 +171,10 @@ const JiraHolder = () => {
 			</div>
 			<div className="d-flex flex-column">
 				<p className="btn btn-success float-right" onClick={addRow}>
-					Add Sub-task
+					<i className="bi bi-plus-circle"></i> Add Sub-task
 				</p>
 				<p className="btn btn-warning float-right" onClick={resetRows}>
-					Reset
+					<i class="bi bi-x-octagon"></i> Reset
 				</p>
 			</div>
 
