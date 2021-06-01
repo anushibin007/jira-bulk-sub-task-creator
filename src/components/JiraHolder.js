@@ -61,10 +61,24 @@ const JiraHolder = () => {
 		});
 	};
 
-	const copyToClipboard = () => {
+	const copyToClipboard = (event) => {
 		var results = document.getElementById("results").innerHTML;
+		// make sure to replace line breaks with newline character
 		results = results.replaceAll("<br>", "\n");
 		navigator.clipboard.writeText(results);
+		showCopyDone(event);
+	};
+
+	const showCopyDone = (event) => {
+		// change text and the button color to show that copy was done
+		event.target.innerHTML = '<i class="bi bi-clipboard-check"></i> Copied';
+		event.target.className = "btn btn-success";
+
+		// change it back to the old text and color after a second
+		setTimeout(() => {
+			event.target.innerHTML = '<i class="bi bi-clipboard-plus"></i> Copy Results';
+			event.target.className = "btn btn-primary";
+		}, 1000);
 	};
 
 	const getJiraWithCustomRowId = (customRowId) => {
@@ -75,7 +89,7 @@ const JiraHolder = () => {
 	};
 
 	const getResultLine = (jira) => {
-		if (jira.summary != "") {
+		if (jira.summary !== "") {
 			return (
 				<React.Fragment key={jira.rowid}>
 					- {jira.summary} / description:"{jira.description}" priority:"
@@ -189,8 +203,8 @@ const JiraHolder = () => {
 			<h5>Results:</h5>
 			<code id="results">{state.jiras.map((jira) => getResultLine(jira))}</code>
 			<br />
-			<p className="btn btn-primary float-right" onClick={copyToClipboard}>
-				<i className="bi bi-clipboard-plus"></i> Copy
+			<p className="btn btn-primary" onClick={copyToClipboard}>
+				<i className="bi bi-clipboard-plus"></i> Copy Results
 			</p>
 			<hr />
 			<h5>How it works:</h5>
