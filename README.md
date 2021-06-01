@@ -9,3 +9,7 @@ Output will be like:
 - Check if the new change breaks anything / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
 - Final changes and optimization / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
 - Tests / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
+```
+
+Docker:
+https://hub.docker.com/r/anushibin007/jira-bulk-sub-task-creator
