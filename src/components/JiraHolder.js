@@ -125,11 +125,11 @@ return (
                                 <td>
                                     <select name="priority" value={jira.priority} onChange={handleInputChanged}>
                                         <option value="@inherit">Inherit</option>
-                                        <option value="blocker">Blocker</option>
-                                        <option value="critical">Critical</option>
-                                        <option value="major">Major</option>
-                                        <option value="minor">Minor</option>
-                                        <option value="trivial">Trivial</option>
+                                        <option value="Blocker">Blocker</option>
+                                        <option value="Critical">Critical</option>
+                                        <option value="Major">Major</option>
+                                        <option value="Minor">Minor</option>
+                                        <option value="Trivial">Trivial</option>
                                     </select>
                                 </td>
                                 <td>
