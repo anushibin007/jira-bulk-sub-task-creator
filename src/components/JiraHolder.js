@@ -10,18 +10,26 @@ const JiraHolder = () => {
     });
 
     /**
-     * Reset the rows on page load
+     * On initial page load, check if the old state is cached in local storage.
+     * If nothing is found there, just show one empty row by calling the "reset" function.
      */
     useEffect(() => {
-        resetRows();
+        const stateFromLocalStorage = localStorage.getItem(Constants.localStorageKey);
+        if(stateFromLocalStorage) {
+            setState(JSON.parse(stateFromLocalStorage));
+        } else {
+            resetRows();
+        }
     }, [])
 
     /**
-     * Just debug logging
+     * Store the state to the local storage whenever it changes.
+     * If the browser session was closed or refreshed, the user can continue from where they left.
      */
     useEffect(() => {
         console.log("jasTrace: JIRAS state changed. Logging it");
         console.log(state);
+        localStorage.setItem(Constants.localStorageKey, JSON.stringify(state));
     })
 
     const addRow = () => {
@@ -160,7 +168,7 @@ return (
             <li>Paste the content you copied from this page above</li>
             <li>Click on "Create Sub-Tasks"</li>
         </ol>
-        <a class="github-fork-ribbon right-top" href="https://github.com/anushibin007/jira-bulk-sub-task-creator" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+        <a className="github-fork-ribbon right-top" href="https://github.com/anushibin007/jira-bulk-sub-task-creator" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
     </div>
 )
 }

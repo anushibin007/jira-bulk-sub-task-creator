@@ -6,7 +6,8 @@ const Constants = {
         assignee: "@current",
         fixversion: "@inherit",
         devpriority: "@inherit"
-    }
+    },
+    localStorageKey: "jsc-state"
 }
 
 export default Constants;
