@@ -66,7 +66,7 @@ const JiraHolder = () => {
         console.log('sending results');
         if(jira.summary != "") {
         return (
-            <p key={jira.rowid}>- { jira.summary } / priority: "{jira.priority}" assignee: "{jira.assignee}" fixversion: "{jira.fixversion}" cfield: "DevPriority:{jira.devpriority}"</p>
+            <p key={jira.rowid}>- { jira.summary } / priority:"{jira.priority}" assignee:"{jira.assignee}" fixversion:"{jira.fixversion}" cfield:"DevPriority:{jira.devpriority}"</p>
         )
         }
     }
