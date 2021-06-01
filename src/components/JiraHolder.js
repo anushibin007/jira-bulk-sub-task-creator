@@ -40,7 +40,7 @@ const JiraHolder = () => {
 		});
 	};
 
-	const deleteRow = (rowid) => {
+	const deleteRow = (event, rowid) => {
 		console.log(rowid);
 		if (state.jiras.length > 1) {
 			// filter out anything that does not match the provided rowid
@@ -50,7 +50,10 @@ const JiraHolder = () => {
 				lastRowId: state.lastRowId,
 			});
 		} else {
-			alert("Cannot delete the last row");
+			event.target.innerHTML = '<i class="bi bi-exclamation-circle"></i> Cannot delete the only row';
+			setTimeout(() => {
+				event.target.innerHTML = '<i class="bi bi-trash"></i> Delete Row';
+			}, 2000);
 		}
 	};
 
@@ -192,8 +195,8 @@ const JiraHolder = () => {
 								<td>
 									<button
 										className="btn btn-danger w-100"
-										onClick={function () {
-											deleteRow(jira.rowid);
+										onClick={function (event) {
+											deleteRow(event, jira.rowid);
 										}}
 									>
 										<i className="bi bi-trash"></i> Delete Row
