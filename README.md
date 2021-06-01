@@ -13,6 +13,6 @@ Output will be like:
 
 Docker:
 ```
-docker run -tidp80:80 --name jira-bulk-sub-task-creator jira-bulk-sub-task-creator
+docker run -tidp80:80 --name jira-bulk-sub-task-creator anushibin007/jira-bulk-sub-task-creator
 ```
 Access the site at http://localhost
