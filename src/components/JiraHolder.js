@@ -61,6 +61,12 @@ const JiraHolder = () => {
 		});
 	};
 
+	const copyToClipboard = () => {
+		var results = document.getElementById("results").innerHTML;
+		results = results.replaceAll("<br>", "\n");
+		navigator.clipboard.writeText(results);
+	};
+
 	const getJiraWithCustomRowId = (customRowId) => {
 		// You need to clone the JSON object instead of making a reference to it using the "=" operator
 		const aJira = JSON.parse(JSON.stringify(Constants.initialJiraValues));
@@ -71,12 +77,12 @@ const JiraHolder = () => {
 	const getResultLine = (jira) => {
 		if (jira.summary != "") {
 			return (
-				<span key={jira.rowid}>
+				<React.Fragment key={jira.rowid}>
 					- {jira.summary} / description:"{jira.description}" priority:"
 					{jira.priority}" assignee:"{jira.assignee}" fixversion:"
 					{jira.fixversion}" cfield:"DevPriority:{jira.devpriority}"
 					<br />
-				</span>
+				</React.Fragment>
 			);
 		}
 	};
@@ -174,14 +180,18 @@ const JiraHolder = () => {
 					<i className="bi bi-plus-circle"></i> Add Sub-task
 				</p>
 				<p className="btn btn-warning float-right" onClick={resetRows}>
-					<i class="bi bi-x-octagon"></i> Reset
+					<i className="bi bi-x-octagon"></i> Reset
 				</p>
 			</div>
 
 			<hr />
 
 			<h5>Results:</h5>
-			<code>{state.jiras.map((jira) => getResultLine(jira))}</code>
+			<code id="results">{state.jiras.map((jira) => getResultLine(jira))}</code>
+			<br />
+			<p className="btn btn-primary float-right" onClick={copyToClipboard}>
+				<i className="bi bi-clipboard-plus"></i> Copy
+			</p>
 			<hr />
 			<h5>How it works:</h5>
 			<ol>
