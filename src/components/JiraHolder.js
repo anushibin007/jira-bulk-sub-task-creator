@@ -208,8 +208,6 @@ const JiraHolder = () => {
 			<hr />
 
 			<ForkMeOnGitHub />
-
-			<hr />
 		</div>
 	);
 };
