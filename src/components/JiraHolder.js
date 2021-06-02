@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Constants from "../utils/Constants";
+import ForkMeOnGitHub from "./ForkMeOnGithub";
+import HowItWorks from "./HowItWorks";
+import JiraResults from "./JiraResults";
 
 const JiraHolder = () => {
+	/**
+	 * The state consists of an array of jiras and the lastRowId used.
+	 */
 	const [state, setState] = useState({
 		jiras: [],
 		lastRowId: 0,
@@ -30,6 +36,10 @@ const JiraHolder = () => {
 		localStorage.setItem(Constants.localStorageKey, JSON.stringify(state));
 	});
 
+	/**
+	 * Add a new row. The rowid of the new row will be one more than the lastrowId.
+	 * The new row will be filled with default values.
+	 */
 	const addRow = () => {
 		const rowid = state.lastRowId + 1;
 		var tempJiraStateHolder = state.jiras;
@@ -40,6 +50,12 @@ const JiraHolder = () => {
 		});
 	};
 
+	/**
+	 * Deletes a row. The last row cannot be deleted.
+	 * When trying to delete the last row, an error message is shown.
+	 * @param {*} event
+	 * @param {*} rowid
+	 */
 	const deleteRow = (event, rowid) => {
 		console.log(rowid);
 		if (state.jiras.length > 1) {
@@ -57,6 +73,9 @@ const JiraHolder = () => {
 		}
 	};
 
+	/**
+	 * Clear the table and show only one row with default rows.
+	 */
 	const resetRows = () => {
 		setState({
 			jiras: [getJiraWithCustomRowId(0)],
@@ -64,41 +83,11 @@ const JiraHolder = () => {
 		});
 	};
 
-	const copyToClipboard = (event) => {
-		var results = document.getElementById("results").innerHTML;
-		// make sure to replace line breaks with newline character
-		results = results.replaceAll("<br>", "\n");
-		try {
-			navigator.clipboard.writeText(results);
-			showCopyDone(event, true);
-		} catch (error) {
-			showCopyDone(event, false);
-		}
-	};
-
 	/**
-	 * Updates the "Copy" button to give feedback to the user whether the copy passed or failed.
-	 *
-	 * @param {*} event
-	 * @param {*} passOrFail True if the copy was successful. False otherwise
+	 * Get  a JIRA JSON with customized rowid.
+	 * @param {*} customRowId
+	 * @returns
 	 */
-	const showCopyDone = (event, passOrFail) => {
-		// change text and the button color to show that copy was done/failed
-		if (passOrFail) {
-			event.target.innerHTML = '<i class="bi bi-clipboard-check"></i> Copied';
-			event.target.className = "btn btn-success";
-		} else {
-			event.target.innerHTML = '<i class="bi bi-clipboard-x"></i> Copy Failed';
-			event.target.className = "btn btn-danger";
-		}
-
-		// change it back to the old text and color after a second
-		setTimeout(() => {
-			event.target.innerHTML = '<i class="bi bi-clipboard-plus"></i> Copy Results';
-			event.target.className = "btn btn-primary";
-		}, 1000);
-	};
-
 	const getJiraWithCustomRowId = (customRowId) => {
 		// You need to clone the JSON object instead of making a reference to it using the "=" operator
 		const aJira = JSON.parse(JSON.stringify(Constants.initialJiraValues));
@@ -106,19 +95,11 @@ const JiraHolder = () => {
 		return aJira;
 	};
 
-	const getResultLine = (jira) => {
-		if (jira.summary !== "") {
-			return (
-				<React.Fragment key={jira.rowid}>
-					- {jira.summary} / description:"{jira.description}" priority:"
-					{jira.priority}" assignee:"{jira.assignee}" fixversion:"
-					{jira.fixversion}" cfield:"DevPriority:{jira.devpriority}"
-					<br />
-				</React.Fragment>
-			);
-		}
-	};
-
+	/**
+	 * This method handles any input change in the table.
+	 * The state JSON is updated accordingly based on the rowid, which we get from the id of the row.
+	 * @param {*} event
+	 */
 	const handleInputChanged = (event) => {
 		// get the name and value of the field that was updated
 		const { name, value } = event.target;
@@ -161,7 +142,7 @@ const JiraHolder = () => {
 						{state.jiras.map((jira) => (
 							<tr key={jira.rowid} id={jira.rowid}>
 								<td className="w-25">
-									<input className="form-control" name="summary" value={jira.summary} onChange={handleInputChanged}></input>
+									<input className="form-control" name="summary" value={jira.summary} onChange={handleInputChanged} autoFocus></input>
 								</td>
 								<td className="w-25">
 									<textarea className="form-control" rows="1" name="description" value={jira.description} onChange={handleInputChanged}></textarea>
@@ -218,24 +199,17 @@ const JiraHolder = () => {
 
 			<hr />
 
-			<h5>Results:</h5>
-			<code id="results">{state.jiras.map((jira) => getResultLine(jira))}</code>
-			<br />
-			<p className="btn btn-primary" onClick={copyToClipboard}>
-				<i className="bi bi-clipboard-plus"></i> Copy Results
-			</p>
+			<JiraResults jiras={state.jiras} />
+
 			<hr />
-			<h5>How it works:</h5>
-			<ol>
-				<li>Copy the text from the Results above</li>
-				<li>Go to your parent JIRA</li>
-				<li>Click on More → Create multiple sub-tasks</li>
-				<li>Paste the content you copied from this page above</li>
-				<li>Click on "Create Sub-Tasks"</li>
-			</ol>
-			<a className="github-fork-ribbon right-top" href="https://github.com/anushibin007/jira-bulk-sub-task-creator" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">
-				Fork me on GitHub
-			</a>
+
+			<HowItWorks />
+
+			<hr />
+
+			<ForkMeOnGitHub />
+
+			<hr />
 		</div>
 	);
 };
