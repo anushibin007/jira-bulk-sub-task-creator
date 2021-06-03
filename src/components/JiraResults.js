@@ -15,13 +15,26 @@ const JiraResults = (props) => {
 	};
 
 	const copyToClipboard = (event) => {
-		var results = document.getElementById("results").innerHTML;
-		// make sure to replace line breaks with newline character
-		results = results.replaceAll("<br>", "\n");
 		try {
-			navigator.clipboard.writeText(results);
+			// Get the data that needs to be copied
+			var results = document.getElementById("results").innerHTML;
+			// Make sure to replace line breaks with newline character
+			results = results.replaceAll("<br>", "\n");
+
+			// Only "textarea" and "input" fields can be "selected" for copying.
+			// Hence, create a temp textarea element with our data and copy the data from it.
+			var input = document.createElement("textarea");
+			input.innerHTML = results;
+			document.body.appendChild(input);
+			input.select();
+			document.execCommand("copy");
+			document.body.removeChild(input);
+
+			// Show that the copy was successful
 			showCopyDone(event, true);
 		} catch (error) {
+			// If it failed, log the error and show an error prompt to the user
+			console.error(error);
 			showCopyDone(event, false);
 		}
 	};
