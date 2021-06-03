@@ -2,7 +2,8 @@
 A tool to create script for multiple Sub-Tasks in JIRA. Access it here: https://anushibin007.github.io/jira-bulk-sub-task-creator/
 
 # Output will be like:
-```- Setup Process Designer / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
+```
+- Setup Process Designer / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
 - Understand the working of the existing code / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
 - Try to reproduce the Customer behavior / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
 - Find a way to implement the new feature / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
