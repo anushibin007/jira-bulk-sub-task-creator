@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/jira-bulk-sub-task-creator/static/css/main.a56800c4.chunk.css",
-    "main.js": "/jira-bulk-sub-task-creator/static/js/main.2661cf30.chunk.js",
-    "main.js.map": "/jira-bulk-sub-task-creator/static/js/main.2661cf30.chunk.js.map",
+    "main.js": "/jira-bulk-sub-task-creator/static/js/main.fc97aec6.chunk.js",
+    "main.js.map": "/jira-bulk-sub-task-creator/static/js/main.fc97aec6.chunk.js.map",
     "runtime-main.js": "/jira-bulk-sub-task-creator/static/js/runtime-main.13c2d8d7.js",
     "runtime-main.js.map": "/jira-bulk-sub-task-creator/static/js/runtime-main.13c2d8d7.js.map",
     "static/css/2.feadb0fd.chunk.css": "/jira-bulk-sub-task-creator/static/css/2.feadb0fd.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.feadb0fd.chunk.css",
     "static/js/2.e6c7968f.chunk.js",
     "static/css/main.a56800c4.chunk.css",
-    "static/js/main.2661cf30.chunk.js"
+    "static/js/main.fc97aec6.chunk.js"
   ]
 }
