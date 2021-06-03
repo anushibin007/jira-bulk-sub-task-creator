@@ -31,8 +31,6 @@ const JiraHolder = () => {
 	 * If the browser session was closed or refreshed, the user can continue from where they left.
 	 */
 	useEffect(() => {
-		console.log("jasTrace: JIRAS state changed. Logging it");
-		console.log(state);
 		localStorage.setItem(Constants.localStorageKey, JSON.stringify(state));
 	});
 
@@ -57,7 +55,6 @@ const JiraHolder = () => {
 	 * @param {*} rowid
 	 */
 	const deleteRow = (event, rowid) => {
-		console.log(rowid);
 		if (state.jiras.length > 1) {
 			// filter out anything that does not match the provided rowid
 			const remainders = state.jiras.filter((jira) => jira.rowid !== rowid);
