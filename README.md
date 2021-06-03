@@ -1,7 +1,7 @@
 # jira-bulk-sub-task-creator
-Tool to create script for multiple Sub-Tasks in JIRA
+A tool to create script for multiple Sub-Tasks in JIRA. Access it here: https://anushibin007.github.io/jira-bulk-sub-task-creator/
 
-Output will be like:
+# Output will be like:
 ```- Setup Process Designer / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
 - Understand the working of the existing code / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
 - Try to reproduce the Customer behavior / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
@@ -11,11 +11,8 @@ Output will be like:
 - Tests / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
 ```
 
-Access the site at:
-https://anushibin007.github.io/jira-bulk-sub-task-creator/
-
-Build it yourself using Docker:
+# Build it yourself using Docker:
 ```
 docker run -tidp80:80 --name jira-bulk-sub-task-creator anushibin007/jira-bulk-sub-task-creator
 ```
-Access the site at http://localhost
+Access it locally at http://localhost
