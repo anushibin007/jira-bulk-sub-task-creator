@@ -11,7 +11,10 @@ Output will be like:
 - Tests / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
 ```
 
-Docker:
+Access the site at:
+https://anushibin007.github.io/jira-bulk-sub-task-creator/
+
+Build it yourself using Docker:
 ```
 docker run -tidp80:80 --name jira-bulk-sub-task-creator anushibin007/jira-bulk-sub-task-creator
 ```
