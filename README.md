@@ -12,7 +12,7 @@ A tool to create script for multiple Sub-Tasks in JIRA. Access it here: https://
 - Tests / priority:"@inherit" assignee:"@current" fixversion:"@inherit" cfield:"DevPriority:@inherit"
 ```
 
-# Build it yourself using Docker:
+# Run your own Docker instance:
 ```
 docker run -tidp80:80 --name jira-bulk-sub-task-creator anushibin007/jira-bulk-sub-task-creator
 ```
