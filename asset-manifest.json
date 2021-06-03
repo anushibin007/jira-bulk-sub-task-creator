@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/anushibin007/jira-bulk-sub-task-creator/static/css/main.a56800c4.chunk.css",
+    "main.js": "/anushibin007/jira-bulk-sub-task-creator/static/js/main.2661cf30.chunk.js",
+    "main.js.map": "/anushibin007/jira-bulk-sub-task-creator/static/js/main.2661cf30.chunk.js.map",
+    "runtime-main.js": "/anushibin007/jira-bulk-sub-task-creator/static/js/runtime-main.abe155f5.js",
+    "runtime-main.js.map": "/anushibin007/jira-bulk-sub-task-creator/static/js/runtime-main.abe155f5.js.map",
+    "static/css/2.0a63b287.chunk.css": "/anushibin007/jira-bulk-sub-task-creator/static/css/2.0a63b287.chunk.css",
+    "static/js/2.e6c7968f.chunk.js": "/anushibin007/jira-bulk-sub-task-creator/static/js/2.e6c7968f.chunk.js",
+    "static/js/2.e6c7968f.chunk.js.map": "/anushibin007/jira-bulk-sub-task-creator/static/js/2.e6c7968f.chunk.js.map",
+    "static/js/3.752fa2fb.chunk.js": "/anushibin007/jira-bulk-sub-task-creator/static/js/3.752fa2fb.chunk.js",
+    "static/js/3.752fa2fb.chunk.js.map": "/anushibin007/jira-bulk-sub-task-creator/static/js/3.752fa2fb.chunk.js.map",
+    "index.html": "/anushibin007/jira-bulk-sub-task-creator/index.html",
+    "static/css/2.0a63b287.chunk.css.map": "/anushibin007/jira-bulk-sub-task-creator/static/css/2.0a63b287.chunk.css.map",
+    "static/css/main.a56800c4.chunk.css.map": "/anushibin007/jira-bulk-sub-task-creator/static/css/main.a56800c4.chunk.css.map",
+    "static/js/2.e6c7968f.chunk.js.LICENSE.txt": "/anushibin007/jira-bulk-sub-task-creator/static/js/2.e6c7968f.chunk.js.LICENSE.txt",
+    "static/media/bootstrap-icons.css": "/anushibin007/jira-bulk-sub-task-creator/static/media/bootstrap-icons.dfd0ea12.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.abe155f5.js",
+    "static/css/2.0a63b287.chunk.css",
+    "static/js/2.e6c7968f.chunk.js",
+    "static/css/main.a56800c4.chunk.css",
+    "static/js/main.2661cf30.chunk.js"
+  ]
+}
