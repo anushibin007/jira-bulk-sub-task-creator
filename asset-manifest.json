@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/jira-bulk-sub-task-creator/static/css/main.8bd10edb.chunk.css",
-    "main.js": "/jira-bulk-sub-task-creator/static/js/main.52749c9b.chunk.js",
-    "main.js.map": "/jira-bulk-sub-task-creator/static/js/main.52749c9b.chunk.js.map",
-    "runtime-main.js": "/jira-bulk-sub-task-creator/static/js/runtime-main.d30904bc.js",
-    "runtime-main.js.map": "/jira-bulk-sub-task-creator/static/js/runtime-main.d30904bc.js.map",
+    "main.js": "/jira-bulk-sub-task-creator/static/js/main.23b7a61f.chunk.js",
+    "main.js.map": "/jira-bulk-sub-task-creator/static/js/main.23b7a61f.chunk.js.map",
+    "runtime-main.js": "/jira-bulk-sub-task-creator/static/js/runtime-main.05061a99.js",
+    "runtime-main.js.map": "/jira-bulk-sub-task-creator/static/js/runtime-main.05061a99.js.map",
     "static/css/2.feadb0fd.chunk.css": "/jira-bulk-sub-task-creator/static/css/2.feadb0fd.chunk.css",
-    "static/js/2.0d413926.chunk.js": "/jira-bulk-sub-task-creator/static/js/2.0d413926.chunk.js",
-    "static/js/2.0d413926.chunk.js.map": "/jira-bulk-sub-task-creator/static/js/2.0d413926.chunk.js.map",
-    "static/js/3.d37cfa33.chunk.js": "/jira-bulk-sub-task-creator/static/js/3.d37cfa33.chunk.js",
-    "static/js/3.d37cfa33.chunk.js.map": "/jira-bulk-sub-task-creator/static/js/3.d37cfa33.chunk.js.map",
+    "static/js/2.ce878ea9.chunk.js": "/jira-bulk-sub-task-creator/static/js/2.ce878ea9.chunk.js",
+    "static/js/2.ce878ea9.chunk.js.map": "/jira-bulk-sub-task-creator/static/js/2.ce878ea9.chunk.js.map",
+    "static/js/3.a5b8a927.chunk.js": "/jira-bulk-sub-task-creator/static/js/3.a5b8a927.chunk.js",
+    "static/js/3.a5b8a927.chunk.js.map": "/jira-bulk-sub-task-creator/static/js/3.a5b8a927.chunk.js.map",
     "index.html": "/jira-bulk-sub-task-creator/index.html",
     "static/css/2.feadb0fd.chunk.css.map": "/jira-bulk-sub-task-creator/static/css/2.feadb0fd.chunk.css.map",
     "static/css/main.8bd10edb.chunk.css.map": "/jira-bulk-sub-task-creator/static/css/main.8bd10edb.chunk.css.map",
-    "static/js/2.0d413926.chunk.js.LICENSE.txt": "/jira-bulk-sub-task-creator/static/js/2.0d413926.chunk.js.LICENSE.txt",
+    "static/js/2.ce878ea9.chunk.js.LICENSE.txt": "/jira-bulk-sub-task-creator/static/js/2.ce878ea9.chunk.js.LICENSE.txt",
     "static/media/bootstrap-icons.css": "/jira-bulk-sub-task-creator/static/media/bootstrap-icons.dfd0ea12.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.d30904bc.js",
+    "static/js/runtime-main.05061a99.js",
     "static/css/2.feadb0fd.chunk.css",
-    "static/js/2.0d413926.chunk.js",
+    "static/js/2.ce878ea9.chunk.js",
     "static/css/main.8bd10edb.chunk.css",
-    "static/js/main.52749c9b.chunk.js"
+    "static/js/main.23b7a61f.chunk.js"
   ]
 }
