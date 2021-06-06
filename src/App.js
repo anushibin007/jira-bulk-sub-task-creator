@@ -1,6 +1,7 @@
 import "./App.css";
-import JiraHolder from "./components/JiraHolder";
 import Navigation from "./components/Navigation";
+import JiraHolder from "./components/JiraHolder";
+import ForkMeOnGitHub from "./components/ForkMeOnGithub";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -9,6 +10,7 @@ function App() {
 		<div className="App">
 			<Navigation />
 			<JiraHolder />
+			<ForkMeOnGitHub />
 		</div>
 	);
 }
