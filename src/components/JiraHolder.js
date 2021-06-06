@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Constants from "../utils/Constants";
-import ForkMeOnGitHub from "./ForkMeOnGithub";
 import HowItWorks from "./HowItWorks";
 import JiraResults from "./JiraResults";
 
