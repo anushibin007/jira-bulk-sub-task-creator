@@ -66,7 +66,7 @@ const JiraResults = (props) => {
 	return (
 		<div>
 			<h5>Results:</h5>
-			<Alert variant="dark" id="results">
+			<Alert variant="secondary" id="results">
 				{props.jiras.map((jira) => getResultLine(jira))}
 			</Alert>
 			<br />
