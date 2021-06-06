@@ -18,7 +18,7 @@ function About() {
 					<Modal.Title>About Me</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					Designed & Developed by <a href="https://github.com/anushibin007/jira-bulk-sub-task-creator">Anu Shibin Joseph Raj</a>
+					Designed & Developed with <span style={{ color: "red" }}>♥</span> by <a href="https://github.com/anushibin007/jira-bulk-sub-task-creator">Anu Shibin Joseph Raj</a>
 				</Modal.Body>
 				<Modal.Footer>
 					<Button variant="secondary" onClick={handleClose}>
