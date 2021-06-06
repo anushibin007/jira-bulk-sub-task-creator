@@ -1,4 +1,5 @@
 import React from "react";
+import { Alert } from "react-bootstrap";
 
 const JiraResults = (props) => {
 	const getResultLine = (jira) => {
@@ -65,7 +66,9 @@ const JiraResults = (props) => {
 	return (
 		<div>
 			<h5>Results:</h5>
-			<code id="results">{props.jiras.map((jira) => getResultLine(jira))}</code>
+			<Alert variant="dark" id="results">
+				{props.jiras.map((jira) => getResultLine(jira))}
+			</Alert>
 			<br />
 			<p className="btn btn-primary" onClick={copyToClipboard}>
 				<i className="bi bi-clipboard-plus"></i> Copy Results
