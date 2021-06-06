@@ -6,9 +6,7 @@ function Navigation() {
 	return (
 		<div>
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
-				<a className="navbar-brand" href="/">
-					Jira Bulk Subtask Creator
-				</a>
+				<span className="navbar-brand">Jira Bulk Subtask Creator</span>
 				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
 				</button>
