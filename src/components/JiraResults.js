@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert } from "react-bootstrap";
+import { Alert, Accordion, Card } from "react-bootstrap";
 
 const JiraResults = (props) => {
 	const getResultLine = (jira) => {
@@ -64,16 +64,24 @@ const JiraResults = (props) => {
 	};
 
 	return (
-		<div>
-			<h5>Results:</h5>
-			<Alert variant="secondary" id="results">
-				{props.jiras.map((jira) => getResultLine(jira))}
-			</Alert>
-			<br />
-			<p className="btn btn-primary" onClick={copyToClipboard}>
-				<i className="bi bi-clipboard-plus"></i> Copy Results
-			</p>
-		</div>
+		<Accordion defaultActiveKey="0">
+			<Card>
+				<Accordion.Toggle as={Card.Header} eventKey="0">
+					<h5>Results</h5>
+				</Accordion.Toggle>
+				<Accordion.Collapse eventKey="0">
+					<Card.Body>
+						<Alert variant="secondary" id="results">
+							{props.jiras.map((jira) => getResultLine(jira))}
+						</Alert>
+						<br />
+						<p className="btn btn-primary" onClick={copyToClipboard}>
+							<i className="bi bi-clipboard-plus"></i> Copy Results
+						</p>
+					</Card.Body>
+				</Accordion.Collapse>
+			</Card>
+		</Accordion>
 	);
 };
 
