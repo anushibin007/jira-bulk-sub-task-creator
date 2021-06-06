@@ -200,8 +200,6 @@ const JiraHolder = () => {
 			<hr />
 
 			<HowItWorks />
-
-			<hr />
 		</div>
 	);
 };
