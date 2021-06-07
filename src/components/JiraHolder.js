@@ -193,11 +193,11 @@ const JiraHolder = () => {
 				</p>
 			</div>
 
-			<hr />
+			<br />
 
 			<JiraResults jiras={state.jiras} />
 
-			<hr />
+			<br />
 
 			<HowItWorks />
 		</div>
