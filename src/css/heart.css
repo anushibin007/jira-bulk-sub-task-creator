@@ -1,0 +1,4 @@
+.heart {
+	color: red;
+	display: inline-block; /* needed for animate.css to animate the span */
+}
