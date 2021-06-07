@@ -136,7 +136,7 @@ const JiraHolder = () => {
 					</thead>
 					<tbody>
 						{state.jiras.map((jira) => (
-							<tr key={jira.rowid} id={jira.rowid}>
+							<tr key={jira.rowid} id={jira.rowid} className="animate__animated animate__fadeIn animate__faster">
 								<td className="w-25">
 									<input className="form-control" name="summary" value={jira.summary} onChange={handleInputChanged} autoFocus></input>
 								</td>
