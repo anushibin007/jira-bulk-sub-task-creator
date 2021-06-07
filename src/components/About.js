@@ -22,7 +22,7 @@ function About() {
 					Designed & Developed with <span className="heart animate__animated animate__heartBeat animate__infinite">♥</span> by <a href="https://github.com/anushibin007/jira-bulk-sub-task-creator">Anu Shibin Joseph Raj</a>
 				</Modal.Body>
 				<Modal.Footer>
-					<Button variant="secondary" onClick={handleClose}>
+					<Button variant="info" onClick={handleClose}>
 						Close
 					</Button>
 				</Modal.Footer>
