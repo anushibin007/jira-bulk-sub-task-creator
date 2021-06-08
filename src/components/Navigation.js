@@ -15,6 +15,8 @@ function Navigation() {
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
+			{/* This line is to make an AJAX call to the counter update function. This will just increment the counter in the background */}
+			<img src="https://www.freevisitorcounters.com/en/home/counter/836517/t/0" style={{ display: "none" }}></img>
 		</div>
 	);
 }
