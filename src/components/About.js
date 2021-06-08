@@ -26,6 +26,7 @@ function About() {
 								Anu Shibin Joseph Raj
 							</a>
 						</div>
+						<br />
 						<div className="d-flex justify-content-center">
 							{/* This line shows the actual counter */}
 							<img src="https://www.freevisitorcounters.com/en/counter/render/836517/t/0" border="0" className="counterimg"></img>
