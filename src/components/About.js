@@ -20,8 +20,11 @@ function About() {
 				</Modal.Header>
 				<Modal.Body>
 					<div className="d-flex flex-column">
-						<div className="p-2">
-							Designed & Developed with <span className="heart animate__animated animate__heartBeat animate__infinite">♥</span> by <a href="https://github.com/anushibin007/jira-bulk-sub-task-creator">Anu Shibin Joseph Raj</a>
+						<div className="d-flex justify-content-center">
+							Designed & Developed with <span className="heart animate__animated animate__heartBeat animate__infinite px-1">♥</span> by{" "}
+							<a className="px-1" href="https://github.com/anushibin007/jira-bulk-sub-task-creator">
+								Anu Shibin Joseph Raj
+							</a>
 						</div>
 						<div className="d-flex justify-content-center">
 							{/* This line shows the actual counter */}
