@@ -1,7 +1,8 @@
 import React from "react";
-import { Alert, Accordion, Card } from "react-bootstrap";
+import { Alert, Accordion, Card, Button } from "react-bootstrap";
 
 const JiraResults = (props) => {
+
 	const getResultLine = (jira) => {
 		if (jira.summary !== "") {
 			return (
@@ -30,7 +31,6 @@ const JiraResults = (props) => {
 			input.select();
 			document.execCommand("copy");
 			document.body.removeChild(input);
-
 			// Show that the copy was successful
 			showCopyDone(event, true);
 		} catch (error) {
@@ -75,9 +75,9 @@ const JiraResults = (props) => {
 							{props.jiras.map((jira) => getResultLine(jira))}
 						</Alert>
 						<br />
-						<p className="btn btn-primary" onClick={copyToClipboard}>
+						<Button className="btn btn-primary" onClick={copyToClipboard} disabled={props.jiras[0].summary === ""}>
 							<i className="bi bi-clipboard-plus"></i> Copy Results
-						</p>
+						</Button>
 					</Card.Body>
 				</Accordion.Collapse>
 			</Card>

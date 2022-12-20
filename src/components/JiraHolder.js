@@ -111,7 +111,6 @@ const JiraHolder = () => {
 				aJira[name] = value;
 			}
 		}
-
 		// update the state
 		setState({
 			jiras: tempJiraStateHolder,
