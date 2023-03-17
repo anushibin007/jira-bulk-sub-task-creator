@@ -21,15 +21,27 @@ function About() {
 				<Modal.Body>
 					<div className="d-flex flex-column">
 						<div className="d-flex justify-content-center">
-							Designed & Developed with <span className="heart animate__animated animate__heartBeat animate__infinite px-1">♥</span> by{" "}
-							<a className="px-1" href="https://github.com/anushibin007/jira-bulk-sub-task-creator">
+							Designed & Developed with{" "}
+							<span className="heart animate__animated animate__heartBeat animate__infinite px-1">
+								♥
+							</span>{" "}
+							by{" "}
+							<a
+								className="px-1"
+								href="https://github.com/anushibin007/jira-bulk-sub-task-creator"
+							>
 								Anu Shibin Joseph Raj
 							</a>
 						</div>
 						<br />
 						<div className="d-flex justify-content-center">
 							{/* This line shows the actual counter */}
-							<img src="https://www.freevisitorcounters.com/en/counter/render/836517/t/0" border="0" className="counterimg"></img>
+							<img
+								src="https://www.freevisitorcounters.com/en/counter/render/836517/t/0"
+								border="0"
+								className="counterimg"
+								alt="Visitor Counter Pane"
+							></img>
 						</div>
 					</div>
 				</Modal.Body>
