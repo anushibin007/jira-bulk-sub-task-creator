@@ -1,5 +1,6 @@
 # jira-bulk-sub-task-creator
-A tool to create script for multiple Sub-Tasks in JIRA. Access it here: https://anushibin007.github.io/jira-bulk-sub-task-creator/
+
+[![gh-pages build](https://github.com/anushibin007/jira-bulk-sub-task-creator/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/anushibin007/jira-bulk-sub-task-creator/actions/workflows/gh-pages.yml)
 
 # Output will be like:
 ```
