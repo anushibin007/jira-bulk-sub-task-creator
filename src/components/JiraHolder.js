@@ -12,6 +12,7 @@ const JiraHolder = () => {
 		lastRowId: 0,
 	});
 
+	const [isDisable, setisDisable] = useState(true);
 	/**
 	 * On initial page load, check if the old state is cached in local storage.
 	 * If nothing is found there, just show one empty row by calling the "reset" function.
@@ -32,6 +33,10 @@ const JiraHolder = () => {
 	useEffect(() => {
 		localStorage.setItem(Constants.localStorageKey, JSON.stringify(state));
 	});
+
+	useEffect(() => {
+		handleDisable()
+	},[state]);
 
 	/**
 	 * Add a new row. The rowid of the new row will be one more than the lastrowId.
@@ -111,11 +116,21 @@ const JiraHolder = () => {
 				aJira[name] = value;
 			}
 		}
+
 		// update the state
 		setState({
 			jiras: tempJiraStateHolder,
 			lastRowId: state.lastRowId,
 		});
+	};
+
+	const handleDisable = () => {
+		const isEmptyResult = document.querySelector(".alert-secondary");
+		if (isEmptyResult && isEmptyResult.innerHTML){
+			setisDisable(false)
+		}else if (isEmptyResult && isEmptyResult.innerHTML === ""){
+			setisDisable(true)
+		}
 	};
 
 	return (
@@ -194,7 +209,7 @@ const JiraHolder = () => {
 
 			<br />
 
-			<JiraResults jiras={state.jiras} />
+			<JiraResults jiras={state.jiras} isBtnDisable={isDisable}/>
 
 			<br />
 

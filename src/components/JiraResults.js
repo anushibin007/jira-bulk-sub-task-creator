@@ -75,7 +75,7 @@ const JiraResults = (props) => {
 							{props.jiras.map((jira) => getResultLine(jira))}
 						</Alert>
 						<br />
-						<Button className="btn btn-primary" onClick={copyToClipboard} disabled={props.jiras[0].summary === ""}>
+						<Button className="btn btn-primary" onClick={copyToClipboard} disabled={props.isBtnDisable}>
 							<i className="bi bi-clipboard-plus"></i> Copy Results
 						</Button>
 					</Card.Body>
