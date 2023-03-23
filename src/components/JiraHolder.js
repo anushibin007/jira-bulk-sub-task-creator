@@ -12,7 +12,7 @@ const JiraHolder = () => {
 		lastRowId: 0,
 	});
 
-	const [isDisable, setisDisable] = useState(true);
+	const [isCopyButtonDisabled, setisCopyButtonDisabled] = useState(true);
 	/**
 	 * On initial page load, check if the old state is cached in local storage.
 	 * If nothing is found there, just show one empty row by calling the "reset" function.
@@ -35,7 +35,7 @@ const JiraHolder = () => {
 	});
 
 	useEffect(() => {
-		handleDisable()
+		handleCopyButtonDisabling()
 	},[state]);
 
 	/**
@@ -124,13 +124,9 @@ const JiraHolder = () => {
 		});
 	};
 
-	const handleDisable = () => {
-		const isEmptyResult = document.querySelector(".alert-secondary");
-		if (isEmptyResult && isEmptyResult.innerHTML){
-			setisDisable(false)
-		}else if (isEmptyResult && isEmptyResult.innerHTML === ""){
-			setisDisable(true)
-		}
+	const handleCopyButtonDisabling = () => {
+		const isAllSummaryEmpty =state.jiras.every((jira) => !jira.summary )
+		isAllSummaryEmpty ? setisCopyButtonDisabled(true) : setisCopyButtonDisabled(false);
 	};
 
 	return (
@@ -209,7 +205,7 @@ const JiraHolder = () => {
 
 			<br />
 
-			<JiraResults jiras={state.jiras} isBtnDisable={isDisable}/>
+			<JiraResults jiras={state.jiras} isBtnDisable={isCopyButtonDisabled}/>
 
 			<br />
 
