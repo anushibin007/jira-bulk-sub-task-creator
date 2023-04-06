@@ -31,6 +31,7 @@ const JiraResults = (props) => {
 			input.select();
 			document.execCommand("copy");
 			document.body.removeChild(input);
+			
 			// Show that the copy was successful
 			showCopyDone(event, true);
 		} catch (error) {
