@@ -126,7 +126,7 @@ const JiraHolder = () => {
 
 	const handleCopyButtonDisabling = () => {
 		const isAllSummaryEmpty =state.jiras.every((jira) => !jira.summary )
-		isAllSummaryEmpty ? setisCopyButtonDisabled(true) : setisCopyButtonDisabled(false);
+		setisCopyButtonDisabled(isAllSummaryEmpty);
 	};
 
 	return (
