@@ -1,7 +1,8 @@
 import React from "react";
-import { Alert, Accordion, Card } from "react-bootstrap";
+import { Alert, Accordion, Card, Button } from "react-bootstrap";
 
 const JiraResults = (props) => {
+
 	const getResultLine = (jira) => {
 		if (jira.summary !== "") {
 			return (
@@ -75,9 +76,9 @@ const JiraResults = (props) => {
 							{props.jiras.map((jira) => getResultLine(jira))}
 						</Alert>
 						<br />
-						<p className="btn btn-primary" onClick={copyToClipboard}>
+						<Button className="btn btn-primary" onClick={copyToClipboard} disabled={props.isBtnDisable}>
 							<i className="bi bi-clipboard-plus"></i> Copy Results
-						</p>
+						</Button>
 					</Card.Body>
 				</Accordion.Collapse>
 			</Card>
