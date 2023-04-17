@@ -12,6 +12,7 @@ const JiraHolder = () => {
 		lastRowId: 0,
 	});
 
+	const [isCopyButtonDisabled, setisCopyButtonDisabled] = useState(true);
 	/**
 	 * On initial page load, check if the old state is cached in local storage.
 	 * If nothing is found there, just show one empty row by calling the "reset" function.
@@ -32,6 +33,10 @@ const JiraHolder = () => {
 	useEffect(() => {
 		localStorage.setItem(Constants.localStorageKey, JSON.stringify(state));
 	});
+
+	useEffect(() => {
+		handleCopyButtonDisabling()
+	},[state]);
 
 	/**
 	 * Add a new row. The rowid of the new row will be one more than the lastrowId.
@@ -119,6 +124,11 @@ const JiraHolder = () => {
 		});
 	};
 
+	const handleCopyButtonDisabling = () => {
+		const isAllSummaryEmpty =state.jiras.every((jira) => !jira.summary )
+		setisCopyButtonDisabled(isAllSummaryEmpty);
+	};
+
 	return (
 		<div className="container w-100">
 			<div className="table-responsive">
@@ -195,7 +205,7 @@ const JiraHolder = () => {
 
 			<br />
 
-			<JiraResults jiras={state.jiras} />
+			<JiraResults jiras={state.jiras} isBtnDisable={isCopyButtonDisabled}/>
 
 			<br />
 
