@@ -64,10 +64,7 @@ const JiraHolder = () => {
 		if (state.jiras.length > 1) {
 			// filter out anything that does not match the provided rowid
 			const remainders = state.jiras.filter((jira) => jira.rowid !== rowid);
-			setState({
-				jiras: remainders,
-				lastRowId: state.lastRowId,
-			});
+			setState({ ...state, jiras: remainders, lastRowId: state.lastRowId });
 		} else {
 			event.target.innerHTML =
 				'<i class="bi bi-exclamation-circle"></i> Cannot delete the only row';
