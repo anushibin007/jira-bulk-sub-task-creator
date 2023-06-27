@@ -10,6 +10,7 @@ const JiraHolder = () => {
 	const [state, setState] = useState({
 		jiras: [],
 		lastRowId: 0,
+		validation: { 0: { summary: true, description: true } },
 	});
 
 	const [isCopyButtonDisabled, setisCopyButtonDisabled] = useState(true);
@@ -35,8 +36,8 @@ const JiraHolder = () => {
 	});
 
 	useEffect(() => {
-		handleCopyButtonDisabling()
-	},[state]);
+		handleCopyButtonDisabling();
+	}, [state]);
 
 	/**
 	 * Add a new row. The rowid of the new row will be one more than the lastrowId.
@@ -49,6 +50,7 @@ const JiraHolder = () => {
 		setState({
 			jiras: tempJiraStateHolder,
 			lastRowId: rowid,
+			validation: { ...state.validation, [rowid]: { summary: true, description: true } },
 		});
 	};
 
@@ -67,7 +69,8 @@ const JiraHolder = () => {
 				lastRowId: state.lastRowId,
 			});
 		} else {
-			event.target.innerHTML = '<i class="bi bi-exclamation-circle"></i> Cannot delete the only row';
+			event.target.innerHTML =
+				'<i class="bi bi-exclamation-circle"></i> Cannot delete the only row';
 			setTimeout(() => {
 				event.target.innerHTML = '<i class="bi bi-trash"></i> Delete Row';
 			}, 2000);
@@ -81,6 +84,7 @@ const JiraHolder = () => {
 		setState({
 			jiras: [getJiraWithCustomRowId(0)],
 			lastRowId: 0,
+			validation: { 0: { summary: true, description: true } },
 		});
 	};
 
@@ -117,15 +121,27 @@ const JiraHolder = () => {
 			}
 		}
 
+		// validate the input
+		const inputValid = validateInput(value);
+		const updatedValidationForThisRow = { ...state.validation[rowid], [name]: inputValid };
+
 		// update the state
 		setState({
 			jiras: tempJiraStateHolder,
 			lastRowId: state.lastRowId,
+			validation: { ...state.validation, [rowid]: updatedValidationForThisRow },
 		});
 	};
 
+	const validateInput = (inputText) => {
+		var regex = /[\/'"]/;
+		return !regex.test(inputText);
+		// console.log(inputText);
+		// return !inputText.includes("/");
+	};
+
 	const handleCopyButtonDisabling = () => {
-		const isAllSummaryEmpty =state.jiras.every((jira) => !jira.summary )
+		const isAllSummaryEmpty = state.jiras.every((jira) => !jira.summary);
 		setisCopyButtonDisabled(isAllSummaryEmpty);
 	};
 
@@ -146,15 +162,56 @@ const JiraHolder = () => {
 					</thead>
 					<tbody>
 						{state.jiras.map((jira) => (
-							<tr key={jira.rowid} id={jira.rowid} className="animate__animated animate__fadeIn animate__faster">
+							<tr
+								key={jira.rowid}
+								id={jira.rowid}
+								className="animate__animated animate__fadeIn animate__faster"
+							>
 								<td className="w-25">
-									<input className="form-control" name="summary" value={jira.summary} onChange={handleInputChanged} autoFocus></input>
+									<input
+										className={`form-control${
+											state.validation[jira.rowid].summary
+												? ""
+												: " is-invalid"
+										}`}
+										name="summary"
+										value={jira.summary}
+										onChange={handleInputChanged}
+										autoFocus
+									></input>
+									{!state.validation[jira.rowid].summary && (
+										<div class="invalid-feedback">
+											Summary should not have the following characters:{" "}
+											<code>/</code> <code>"</code> <code>'</code>
+										</div>
+									)}
 								</td>
 								<td className="w-25">
-									<textarea className="form-control" rows="1" name="description" value={jira.description} onChange={handleInputChanged}></textarea>
+									<textarea
+										className={`form-control${
+											state.validation[jira.rowid].description
+												? ""
+												: " is-invalid"
+										}`}
+										rows="1"
+										name="description"
+										value={jira.description}
+										onChange={handleInputChanged}
+									></textarea>
+									{!state.validation[jira.rowid].description && (
+										<div class="invalid-feedback">
+											Description should not have the following characters:{" "}
+											<code>/</code> <code>"</code> <code>'</code>
+										</div>
+									)}
 								</td>
 								<td>
-									<select className="btn btn-secondary dropdown-toggle  w-100" name="priority" value={jira.priority} onChange={handleInputChanged}>
+									<select
+										className="btn btn-secondary dropdown-toggle  w-100"
+										name="priority"
+										value={jira.priority}
+										onChange={handleInputChanged}
+									>
 										<option value="@inherit">Inherit</option>
 										<option value="Blocker">Blocker</option>
 										<option value="Critical">Critical</option>
@@ -164,18 +221,33 @@ const JiraHolder = () => {
 									</select>
 								</td>
 								<td>
-									<select className="btn btn-secondary dropdown-toggle  w-100" name="assignee" value={jira.assignee} onChange={handleInputChanged}>
+									<select
+										className="btn btn-secondary dropdown-toggle  w-100"
+										name="assignee"
+										value={jira.assignee}
+										onChange={handleInputChanged}
+									>
 										<option value="@current">Me</option>
 										<option value="@inherit">Inherit</option>
 									</select>
 								</td>
 								<td>
-									<select className="btn btn-secondary dropdown-toggle  w-100" name="fixversion" value={jira.fixversion} onChange={handleInputChanged}>
+									<select
+										className="btn btn-secondary dropdown-toggle  w-100"
+										name="fixversion"
+										value={jira.fixversion}
+										onChange={handleInputChanged}
+									>
 										<option value="@inherit">Inherit</option>
 									</select>
 								</td>
 								<td>
-									<select className="btn btn-secondary dropdown-toggle  w-100" name="devpriority" value={jira.devpriority} onChange={handleInputChanged}>
+									<select
+										className="btn btn-secondary dropdown-toggle  w-100"
+										name="devpriority"
+										value={jira.devpriority}
+										onChange={handleInputChanged}
+									>
 										<option value="@inherit">Inherit</option>
 									</select>
 								</td>
@@ -205,7 +277,7 @@ const JiraHolder = () => {
 
 			<br />
 
-			<JiraResults jiras={state.jiras} isBtnDisable={isCopyButtonDisabled}/>
+			<JiraResults jiras={state.jiras} isBtnDisable={isCopyButtonDisabled} />
 
 			<br />
 
