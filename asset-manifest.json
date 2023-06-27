@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/jira-bulk-sub-task-creator/static/css/main.6b0cd290.css",
-    "main.js": "/jira-bulk-sub-task-creator/static/js/main.ac3c3114.js",
+    "main.js": "/jira-bulk-sub-task-creator/static/js/main.8c8de0f8.js",
     "static/js/787.d1266434.chunk.js": "/jira-bulk-sub-task-creator/static/js/787.d1266434.chunk.js",
     "static/media/bootstrap-icons.woff?": "/jira-bulk-sub-task-creator/static/media/bootstrap-icons.94eeade15e6b7fbed95b.woff",
     "static/media/bootstrap-icons.woff2?": "/jira-bulk-sub-task-creator/static/media/bootstrap-icons.dfd0ea122577eb61795f.woff2",
     "index.html": "/jira-bulk-sub-task-creator/index.html",
     "main.6b0cd290.css.map": "/jira-bulk-sub-task-creator/static/css/main.6b0cd290.css.map",
-    "main.ac3c3114.js.map": "/jira-bulk-sub-task-creator/static/js/main.ac3c3114.js.map",
+    "main.8c8de0f8.js.map": "/jira-bulk-sub-task-creator/static/js/main.8c8de0f8.js.map",
     "787.d1266434.chunk.js.map": "/jira-bulk-sub-task-creator/static/js/787.d1266434.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6b0cd290.css",
-    "static/js/main.ac3c3114.js"
+    "static/js/main.8c8de0f8.js"
   ]
 }
